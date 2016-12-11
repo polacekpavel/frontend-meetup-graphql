@@ -1,0 +1,6 @@
+type Event {
+  eventType: String
+  url: String
+  urlName: String
+  weather: Weather
+}

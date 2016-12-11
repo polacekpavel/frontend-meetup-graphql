@@ -1,0 +1,9 @@
+node_modules/*
+tclient/*
+static/*
+webpack/*
+client/modules/*
+doc/*
+coverage/*
+client/assets/static/livechat/*
+./TypesSectionNew.js
