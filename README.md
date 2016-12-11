@@ -328,3 +328,15 @@ app.use('/graphql', graphqlExpress({
   }
 }));
 ```
+
+### Batching graphql requests
+src/index.js
+```javascript
+import ApolloClient, { createBatchingNetworkInterface } from "apollo-client";
+...
+const networkInterface = createBatchingNetworkInterface({
+  uri: 'http://localhost:8080/graphql',
+  batchInterval: 500
+});
+...
+```
