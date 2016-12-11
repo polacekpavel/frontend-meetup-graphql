@@ -1,0 +1,6 @@
+mutation createUser($firstName: String, $lastName: String, $githubUsername: String!) {
+  createUser(firstName: $firstName, lastName: $lastName, githubUsername: $githubUsername) {
+    __typename
+    id
+  }
+}

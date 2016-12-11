@@ -1,0 +1,22 @@
+query getUserDetail($githubUsername: String!) {
+  user(githubUsername: $githubUsername) {
+    __typename
+    firstName
+    github {
+      __typename
+      avatarSrc
+      events {
+        __typename
+        eventType
+        url
+        urlName
+        weather {
+          __typename
+          condition
+        }
+      }
+    }
+    id
+    lastName
+  }
+}

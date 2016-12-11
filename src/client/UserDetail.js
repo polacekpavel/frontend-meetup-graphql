@@ -1,5 +1,16 @@
 import React, { Component } from "react";
+import { graphql } from "react-apollo";
+import getUserDetailQuery from "./API/getUserDetail.graphql";
 
+@graphql(getUserDetailQuery, {
+  options: (props) => {
+    return {
+      variables: {
+        githubUsername: props.user.github.id
+      }
+    };
+  }
+})
 class UserDetail extends Component {
   constructor(props) {
     super(props);
@@ -37,9 +48,9 @@ class UserDetail extends Component {
             {' - '} {this.props.user.github && (this.props.user.github.id)} </h3>
         </div>
         <div>
-          <img src={this.state.user && this.state.user.github.avatarSrc } width={50} height={50}/>
+          <img src={this.props.data.user && this.props.data.user.github.avatarSrc } width={50} height={50}/>
         </div>
-        <p>{this.state.user && this.state.user.github.location }</p>
+        <p>{this.props.data.user && this.props.data.user.github.location }</p>
         <table className="eventTable">
           <tbody>
           <tr>
@@ -53,7 +64,7 @@ class UserDetail extends Component {
               Weather
             </th>
           </tr>
-          {this.state.user && this.state.user.github.events.map((event, index) => {
+          {this.props.data.user && this.props.data.user.github.events.map((event, index) => {
             return (
               <tr key={index}>
                 <td>{event.eventType}</td>

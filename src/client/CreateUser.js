@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import { graphql } from "react-apollo";
+import createUserQuery from "./API/createUser.graphql";
+import update from "immutability-helper";
+
+@graphql(createUserQuery, { name: 'createUser' })
 class CreateUser extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +35,36 @@ class CreateUser extends Component {
         </div>
         <button className="btn btn-success"
                 onClick={() => {
-                  this.props.onCreate();
+                  this.props.createUser({
+                    variables: {
+                      firstName: this.state.firstName,
+                      lastName: this.state.lastName,
+                      githubUsername: this.state.githubUsername
+                    },
+                    optimisticResponse: {
+                      createUser: {
+                        id: 10000,
+                        firstName: this.state.firstName,
+                        lastName: this.state.lastName,
+                        githubUsername: this.state.githubUsername
+                      }
+                    },
+                    updateQueries: {
+                      getAllUsers: (previousState, mutationData) => {
+                        const newUser = mutationData.mutationResult.data.createUser;
+
+                        if (!newUser) {
+                          return previousState;
+                        }
+
+                        return update(previousState, {
+                          users: {
+                            $unshift: [newUser]
+                          }
+                        });
+                      }
+                    }
+                  }).then(() => this.props.onCreate());
                 }}>
           Save
         </button>

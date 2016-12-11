@@ -1,0 +1,12 @@
+subscription userCreated {
+  userCreated {
+    __typename
+    id
+    firstName
+    lastName
+    github {
+      __typename
+      id
+    }
+  }
+}

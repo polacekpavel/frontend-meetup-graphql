@@ -30,10 +30,10 @@ _.forOwn(operationsQuery, (item, value) => {
 });
 app.use('/graphql', graphqlExpress({
   schema: schema,
-  // formatParams(params) {
-  //   params['query'] = store.get(params.operationName);
-  //   return params;
-  // },
+  formatParams(params) {
+    params['query'] = store.get(params.operationName);
+    return params;
+  },
   context: {
     Users: new UserModel({ connector: UserConnector }),
     Github: new GithubModel({ connector: new GithubConnector() }),
@@ -58,10 +58,10 @@ new SubscriptionServer({
   subscriptionManager,
   onSubscribe: (msg, params) => {
     return Object.assign({}, params, {
-      // formatParams(params) {
-      //   params['query'] = store.get(params.operationName);
-      //   return params;
-      // },
+      formatParams(params) {
+        params['query'] = store.get(params.operationName);
+        return params;
+      },
       context: {
         Users: new UserModel({ connector: UserConnector }),
         Github: new GithubModel({ connector: new GithubConnector() }),

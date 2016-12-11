@@ -282,9 +282,28 @@ class Users extends Component {
     ...
 }
 ```
+### Prefetching queries
+src/client/Users.js
+```javascript
+import { graphql, withApollo } from "react-apollo";
+
+@withApollo
+class Users extends Component {
+    ...
+    this.props.data.users && this.props.data.users.sort((a, b) => a.id - b.id).map((item) => {
+                return <div key={item.id} className="row" onMouseOver={() => {
+                  this.props.client.query({
+                    query: userDetailQuery,
+                    variables: {
+                      githubUsername: item.github.id
+                    }
+                  });
+                }}
+}
+```
 
 ### Persisted queries
-Harvest all of your client queries
+Harvest all of your client queries using [extractgql](https://github.com/Poincare/extractgql)
 
 ```bash
 extractgql src/client/
@@ -308,23 +327,4 @@ app.use('/graphql', graphqlExpress({
     Weather: new WeatherModel({ connector: new WeatherConnector() })
   }
 }));
-```
-### Prefetching queries
-src/client/Users.js
-```javascript
-import { graphql, withApollo } from "react-apollo";
-
-@withApollo
-class Users extends Component {
-    ...
-    this.props.data.users && this.props.data.users.sort((a, b) => a.id - b.id).map((item) => {
-                return <div key={item.id} className="row" onMouseOver={() => {
-                  this.props.client.query({
-                    query: userDetailQuery,
-                    variables: {
-                      githubUsername: item.github.id
-                    }
-                  });
-                }}
-}
 ```

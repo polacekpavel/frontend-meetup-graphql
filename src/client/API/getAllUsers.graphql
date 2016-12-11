@@ -1,0 +1,12 @@
+query getAllUsers ($offset: Int, $limit: Int) {
+  users(limit: $limit, offset: $offset) {
+    __typename
+    firstName
+    github {
+      __typename
+      id
+    }
+    lastName
+    id
+  }
+}
