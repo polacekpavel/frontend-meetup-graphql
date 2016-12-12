@@ -42,6 +42,7 @@ via high order function
 ```javascript
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
+import gql from "graphql-tag";
 import getAllUsersQuery from "./API/getAllUsers.graphql";
 
 class Users extends Component {
@@ -71,7 +72,20 @@ class Users extends Component {
     );
   }
 }
-export default graphql(getAllUsersQuery)(Users);
+
+const getAllUsersQuery = gql`
+  query getAllUsers {
+    users {
+      firstName
+      github {
+        id
+      }
+      lastName
+      id
+    }
+  }
+`;
+export default graphql(getUserDetailQuery)(Users);
 ```
 
 Or via decorators
