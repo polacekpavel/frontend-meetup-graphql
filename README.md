@@ -9,21 +9,6 @@
 * Prefetching
 * Peristed queries
 
-
-You can import your *.graphql queries with webpack loader
-
-```javascript
-{
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        loader: 'graphql-tag/loader'
-}
-```
-
-```javascript
-import createUserQuery from './API/createUser.graphql';
-```
-And then use it directly in code without gql tag
 ```javascript
 
 ```
@@ -89,7 +74,22 @@ class Users extends Component {
 export default graphql(getAllUsersQuery)(Users);
 ```
 
-or via decorators
+Or via decorators
+
+You can import your *.graphql queries with webpack loader
+
+```javascript
+{
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader'
+}
+```
+
+```javascript
+import createUserQuery from './API/createUser.graphql';
+```
+And then use it directly in code without gql tag
 ```javascript
 @graphql(getAllUsersQuery)
 class Users extends Component {
