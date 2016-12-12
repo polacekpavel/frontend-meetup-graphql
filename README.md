@@ -43,7 +43,6 @@ via high order function
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import getAllUsersQuery from "./API/getAllUsers.graphql";
 
 class Users extends Component {
   constructor(props) {
