@@ -7,11 +7,9 @@
 * Subscription
 * Pagination
 * Prefetching
+* Batching queries
 * Peristed queries
 
-```javascript
-
-```
 ## Connect React with graphql
 src/client/index.js
 ```javascript
