@@ -21,7 +21,7 @@ var config = require('../config/webpack.config.dev');
 var paths = require('../config/paths');
 
 // Warn and crash if required files are missing
-if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
+if (!checkRequiredFiles([paths.appIndexJs])) {
   process.exit(1);
 }
 
@@ -221,7 +221,10 @@ function runDevServer(host, port, protocol) {
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",
-    host: host
+    host: host,
+    setup: function(app) {
+      app.use(require('./ssr'));
+    },
   });
 
   // Our custom middleware proxies requests to /index.html or a remote API.
