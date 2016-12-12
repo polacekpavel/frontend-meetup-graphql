@@ -7,7 +7,8 @@ export default class Weather {
     return this.weather.getWeather(location, createdAt)
       .then((res) => {
         return {
-          condition: res.daily.data[0].icon
+          condition: 'fog'
+          // condition: res.daily.data[0].icon
         };
       });
   }

@@ -1,1 +1,1307 @@
-{"mutation createUser($firstName: String, $lastName: String, $githubUsername: String!) {\n  createUser(firstName: $firstName, lastName: $lastName, githubUsername: $githubUsername) {\n    __typename\n    id\n  }\n}":{"transformedQuery":{"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createUser","loc":{"start":9,"end":19}},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName","loc":{"start":21,"end":30}},"loc":{"start":20,"end":30}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String","loc":{"start":32,"end":38}},"loc":{"start":32,"end":38}},"defaultValue":null,"loc":{"start":20,"end":38}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName","loc":{"start":41,"end":49}},"loc":{"start":40,"end":49}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String","loc":{"start":51,"end":57}},"loc":{"start":51,"end":57}},"defaultValue":null,"loc":{"start":40,"end":57}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"githubUsername","loc":{"start":60,"end":74}},"loc":{"start":59,"end":74}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String","loc":{"start":76,"end":82}},"loc":{"start":76,"end":82}},"loc":{"start":76,"end":83}},"defaultValue":null,"loc":{"start":59,"end":83}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"createUser","loc":{"start":89,"end":99}},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"firstName","loc":{"start":100,"end":109}},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName","loc":{"start":112,"end":121}},"loc":{"start":111,"end":121}},"loc":{"start":100,"end":121}},{"kind":"Argument","name":{"kind":"Name","value":"lastName","loc":{"start":123,"end":131}},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName","loc":{"start":134,"end":142}},"loc":{"start":133,"end":142}},"loc":{"start":123,"end":142}},{"kind":"Argument","name":{"kind":"Name","value":"githubUsername","loc":{"start":144,"end":158}},"value":{"kind":"Variable","name":{"kind":"Name","value":"githubUsername","loc":{"start":161,"end":175}},"loc":{"start":160,"end":175}},"loc":{"start":144,"end":175}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":183,"end":193}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":183,"end":193}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":198,"end":200}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":198,"end":200}}],"loc":{"start":177,"end":204}},"loc":{"start":89,"end":204}}],"loc":{"start":85,"end":206}},"loc":{"start":0,"end":206}}]},"id":1},"query getAllUsers($offset: Int, $limit: Int) {\n  users(limit: $limit, offset: $offset) {\n    __typename\n    firstName\n    github {\n      __typename\n      id\n    }\n    lastName\n    id\n  }\n}":{"transformedQuery":{"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllUsers","loc":{"start":6,"end":17}},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset","loc":{"start":20,"end":26}},"loc":{"start":19,"end":26}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int","loc":{"start":28,"end":31}},"loc":{"start":28,"end":31}},"defaultValue":null,"loc":{"start":19,"end":31}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit","loc":{"start":34,"end":39}},"loc":{"start":33,"end":39}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int","loc":{"start":41,"end":44}},"loc":{"start":41,"end":44}},"defaultValue":null,"loc":{"start":33,"end":44}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"users","loc":{"start":50,"end":55}},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit","loc":{"start":56,"end":61}},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit","loc":{"start":64,"end":69}},"loc":{"start":63,"end":69}},"loc":{"start":56,"end":69}},{"kind":"Argument","name":{"kind":"Name","value":"offset","loc":{"start":71,"end":77}},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset","loc":{"start":80,"end":86}},"loc":{"start":79,"end":86}},"loc":{"start":71,"end":86}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":94,"end":104}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":94,"end":104}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"firstName","loc":{"start":109,"end":118}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":109,"end":118}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"github","loc":{"start":123,"end":129}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":138,"end":148}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":138,"end":148}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":155,"end":157}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":155,"end":157}}],"loc":{"start":130,"end":163}},"loc":{"start":123,"end":163}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"lastName","loc":{"start":168,"end":176}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":168,"end":176}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":181,"end":183}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":181,"end":183}}],"loc":{"start":88,"end":187}},"loc":{"start":50,"end":187}}],"loc":{"start":46,"end":189}},"loc":{"start":0,"end":189}}]},"id":2},"query getUserDetail($githubUsername: String!) {\n  user(githubUsername: $githubUsername) {\n    __typename\n    firstName\n    github {\n      __typename\n      avatarSrc\n      events {\n        __typename\n        eventType\n        url\n        urlName\n        weather {\n          __typename\n          condition\n        }\n      }\n    }\n    id\n    lastName\n  }\n}":{"transformedQuery":{"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUserDetail","loc":{"start":6,"end":19}},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"githubUsername","loc":{"start":21,"end":35}},"loc":{"start":20,"end":35}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String","loc":{"start":37,"end":43}},"loc":{"start":37,"end":43}},"loc":{"start":37,"end":44}},"defaultValue":null,"loc":{"start":20,"end":44}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"user","loc":{"start":50,"end":54}},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"githubUsername","loc":{"start":55,"end":69}},"value":{"kind":"Variable","name":{"kind":"Name","value":"githubUsername","loc":{"start":72,"end":86}},"loc":{"start":71,"end":86}},"loc":{"start":55,"end":86}}],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":94,"end":104}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":94,"end":104}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"firstName","loc":{"start":109,"end":118}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":109,"end":118}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"github","loc":{"start":123,"end":129}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":138,"end":148}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":138,"end":148}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"avatarSrc","loc":{"start":155,"end":164}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":155,"end":164}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"events","loc":{"start":171,"end":177}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":188,"end":198}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":188,"end":198}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"eventType","loc":{"start":207,"end":216}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":207,"end":216}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"url","loc":{"start":225,"end":228}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":225,"end":228}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"urlName","loc":{"start":237,"end":244}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":237,"end":244}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"weather","loc":{"start":253,"end":260}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":273,"end":283}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":273,"end":283}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"condition","loc":{"start":294,"end":303}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":294,"end":303}}],"loc":{"start":261,"end":313}},"loc":{"start":253,"end":313}}],"loc":{"start":178,"end":321}},"loc":{"start":171,"end":321}}],"loc":{"start":130,"end":327}},"loc":{"start":123,"end":327}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":332,"end":334}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":332,"end":334}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"lastName","loc":{"start":339,"end":347}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":339,"end":347}}],"loc":{"start":88,"end":351}},"loc":{"start":50,"end":351}}],"loc":{"start":46,"end":353}},"loc":{"start":0,"end":353}}]},"id":3},"subscription userCreated {\n  userCreated {\n    __typename\n    id\n    firstName\n    lastName\n    github {\n      __typename\n      id\n    }\n  }\n}":{"transformedQuery":{"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"subscription","name":{"kind":"Name","value":"userCreated","loc":{"start":13,"end":24}},"variableDefinitions":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"userCreated","loc":{"start":29,"end":40}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":47,"end":57}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":47,"end":57}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":62,"end":64}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":62,"end":64}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"firstName","loc":{"start":69,"end":78}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":69,"end":78}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"lastName","loc":{"start":83,"end":91}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":83,"end":91}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"github","loc":{"start":96,"end":102}},"arguments":[],"directives":[],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":null,"name":{"kind":"Name","value":"__typename","loc":{"start":111,"end":121}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":111,"end":121}},{"kind":"Field","alias":null,"name":{"kind":"Name","value":"id","loc":{"start":128,"end":130}},"arguments":[],"directives":[],"selectionSet":null,"loc":{"start":128,"end":130}}],"loc":{"start":103,"end":136}},"loc":{"start":96,"end":136}}],"loc":{"start":41,"end":140}},"loc":{"start":29,"end":140}}],"loc":{"start":25,"end":142}},"loc":{"start":0,"end":142}}]},"id":4}}
+{
+  "mutation createUser($firstName: String, $lastName: String, $githubUsername: String!) {\n  createUser(firstName: $firstName, lastName: $lastName, githubUsername: $githubUsername) {\n    __typename\n    id\n  }\n}": {
+    "transformedQuery": {
+      "kind": "Document",
+      "definitions": [
+        {
+          "kind": "OperationDefinition",
+          "operation": "mutation",
+          "name": {
+            "kind": "Name",
+            "value": "createUser",
+            "loc": {
+              "start": 9,
+              "end": 19
+            }
+          },
+          "variableDefinitions": [
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "firstName",
+                  "loc": {
+                    "start": 21,
+                    "end": 30
+                  }
+                },
+                "loc": {
+                  "start": 20,
+                  "end": 30
+                }
+              },
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "String",
+                  "loc": {
+                    "start": 32,
+                    "end": 38
+                  }
+                },
+                "loc": {
+                  "start": 32,
+                  "end": 38
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 20,
+                "end": 38
+              }
+            },
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "lastName",
+                  "loc": {
+                    "start": 41,
+                    "end": 49
+                  }
+                },
+                "loc": {
+                  "start": 40,
+                  "end": 49
+                }
+              },
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "String",
+                  "loc": {
+                    "start": 51,
+                    "end": 57
+                  }
+                },
+                "loc": {
+                  "start": 51,
+                  "end": 57
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 40,
+                "end": 57
+              }
+            },
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "githubUsername",
+                  "loc": {
+                    "start": 60,
+                    "end": 74
+                  }
+                },
+                "loc": {
+                  "start": 59,
+                  "end": 74
+                }
+              },
+              "type": {
+                "kind": "NonNullType",
+                "type": {
+                  "kind": "NamedType",
+                  "name": {
+                    "kind": "Name",
+                    "value": "String",
+                    "loc": {
+                      "start": 76,
+                      "end": 82
+                    }
+                  },
+                  "loc": {
+                    "start": 76,
+                    "end": 82
+                  }
+                },
+                "loc": {
+                  "start": 76,
+                  "end": 83
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 59,
+                "end": 83
+              }
+            }
+          ],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "alias": null,
+                "name": {
+                  "kind": "Name",
+                  "value": "createUser",
+                  "loc": {
+                    "start": 89,
+                    "end": 99
+                  }
+                },
+                "arguments": [
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "firstName",
+                      "loc": {
+                        "start": 100,
+                        "end": 109
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "firstName",
+                        "loc": {
+                          "start": 112,
+                          "end": 121
+                        }
+                      },
+                      "loc": {
+                        "start": 111,
+                        "end": 121
+                      }
+                    },
+                    "loc": {
+                      "start": 100,
+                      "end": 121
+                    }
+                  },
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "lastName",
+                      "loc": {
+                        "start": 123,
+                        "end": 131
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "lastName",
+                        "loc": {
+                          "start": 134,
+                          "end": 142
+                        }
+                      },
+                      "loc": {
+                        "start": 133,
+                        "end": 142
+                      }
+                    },
+                    "loc": {
+                      "start": 123,
+                      "end": 142
+                    }
+                  },
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "githubUsername",
+                      "loc": {
+                        "start": 144,
+                        "end": 158
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "githubUsername",
+                        "loc": {
+                          "start": 161,
+                          "end": 175
+                        }
+                      },
+                      "loc": {
+                        "start": 160,
+                        "end": 175
+                      }
+                    },
+                    "loc": {
+                      "start": 144,
+                      "end": 175
+                    }
+                  }
+                ],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "__typename",
+                        "loc": {
+                          "start": 183,
+                          "end": 193
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 183,
+                        "end": 193
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": {
+                          "start": 198,
+                          "end": 200
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 198,
+                        "end": 200
+                      }
+                    }
+                  ],
+                  "loc": {
+                    "start": 177,
+                    "end": 204
+                  }
+                },
+                "loc": {
+                  "start": 89,
+                  "end": 204
+                }
+              }
+            ],
+            "loc": {
+              "start": 85,
+              "end": 206
+            }
+          },
+          "loc": {
+            "start": 0,
+            "end": 206
+          }
+        }
+      ]
+    },
+    "id": 1
+  },
+  "query getAllUsers($offset: Int, $limit: Int) {\n  users(limit: $limit, offset: $offset) {\n    __typename\n    firstName\n    github {\n      __typename\n      id\n    }\n    lastName\n    id\n  }\n}": {
+    "transformedQuery": {
+      "kind": "Document",
+      "definitions": [
+        {
+          "kind": "OperationDefinition",
+          "operation": "query",
+          "name": {
+            "kind": "Name",
+            "value": "getAllUsers",
+            "loc": {
+              "start": 6,
+              "end": 17
+            }
+          },
+          "variableDefinitions": [
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "offset",
+                  "loc": {
+                    "start": 20,
+                    "end": 26
+                  }
+                },
+                "loc": {
+                  "start": 19,
+                  "end": 26
+                }
+              },
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int",
+                  "loc": {
+                    "start": 28,
+                    "end": 31
+                  }
+                },
+                "loc": {
+                  "start": 28,
+                  "end": 31
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 19,
+                "end": 31
+              }
+            },
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "limit",
+                  "loc": {
+                    "start": 34,
+                    "end": 39
+                  }
+                },
+                "loc": {
+                  "start": 33,
+                  "end": 39
+                }
+              },
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int",
+                  "loc": {
+                    "start": 41,
+                    "end": 44
+                  }
+                },
+                "loc": {
+                  "start": 41,
+                  "end": 44
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 33,
+                "end": 44
+              }
+            }
+          ],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "alias": null,
+                "name": {
+                  "kind": "Name",
+                  "value": "users",
+                  "loc": {
+                    "start": 50,
+                    "end": 55
+                  }
+                },
+                "arguments": [
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "limit",
+                      "loc": {
+                        "start": 56,
+                        "end": 61
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "limit",
+                        "loc": {
+                          "start": 64,
+                          "end": 69
+                        }
+                      },
+                      "loc": {
+                        "start": 63,
+                        "end": 69
+                      }
+                    },
+                    "loc": {
+                      "start": 56,
+                      "end": 69
+                    }
+                  },
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "offset",
+                      "loc": {
+                        "start": 71,
+                        "end": 77
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "offset",
+                        "loc": {
+                          "start": 80,
+                          "end": 86
+                        }
+                      },
+                      "loc": {
+                        "start": 79,
+                        "end": 86
+                      }
+                    },
+                    "loc": {
+                      "start": 71,
+                      "end": 86
+                    }
+                  }
+                ],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "__typename",
+                        "loc": {
+                          "start": 94,
+                          "end": 104
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 94,
+                        "end": 104
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "firstName",
+                        "loc": {
+                          "start": 109,
+                          "end": 118
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 109,
+                        "end": 118
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "github",
+                        "loc": {
+                          "start": 123,
+                          "end": 129
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": {
+                        "kind": "SelectionSet",
+                        "selections": [
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "__typename",
+                              "loc": {
+                                "start": 138,
+                                "end": 148
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 138,
+                              "end": 148
+                            }
+                          },
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "id",
+                              "loc": {
+                                "start": 155,
+                                "end": 157
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 155,
+                              "end": 157
+                            }
+                          }
+                        ],
+                        "loc": {
+                          "start": 130,
+                          "end": 163
+                        }
+                      },
+                      "loc": {
+                        "start": 123,
+                        "end": 163
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "lastName",
+                        "loc": {
+                          "start": 168,
+                          "end": 176
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 168,
+                        "end": 176
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": {
+                          "start": 181,
+                          "end": 183
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 181,
+                        "end": 183
+                      }
+                    }
+                  ],
+                  "loc": {
+                    "start": 88,
+                    "end": 187
+                  }
+                },
+                "loc": {
+                  "start": 50,
+                  "end": 187
+                }
+              }
+            ],
+            "loc": {
+              "start": 46,
+              "end": 189
+            }
+          },
+          "loc": {
+            "start": 0,
+            "end": 189
+          }
+        }
+      ]
+    },
+    "id": 2
+  },
+  "query getUserDetail($githubUsername: String!) {\n  user(githubUsername: $githubUsername) {\n    __typename\n    firstName\n    github {\n      __typename\n      avatarSrc\n      events {\n        __typename\n        eventType\n        url\n        urlName\n        weather {\n          __typename\n          condition\n        }\n      }\n    }\n    id\n    lastName\n  }\n}": {
+    "transformedQuery": {
+      "kind": "Document",
+      "definitions": [
+        {
+          "kind": "OperationDefinition",
+          "operation": "query",
+          "name": {
+            "kind": "Name",
+            "value": "getUserDetail",
+            "loc": {
+              "start": 6,
+              "end": 19
+            }
+          },
+          "variableDefinitions": [
+            {
+              "kind": "VariableDefinition",
+              "variable": {
+                "kind": "Variable",
+                "name": {
+                  "kind": "Name",
+                  "value": "githubUsername",
+                  "loc": {
+                    "start": 21,
+                    "end": 35
+                  }
+                },
+                "loc": {
+                  "start": 20,
+                  "end": 35
+                }
+              },
+              "type": {
+                "kind": "NonNullType",
+                "type": {
+                  "kind": "NamedType",
+                  "name": {
+                    "kind": "Name",
+                    "value": "String",
+                    "loc": {
+                      "start": 37,
+                      "end": 43
+                    }
+                  },
+                  "loc": {
+                    "start": 37,
+                    "end": 43
+                  }
+                },
+                "loc": {
+                  "start": 37,
+                  "end": 44
+                }
+              },
+              "defaultValue": null,
+              "loc": {
+                "start": 20,
+                "end": 44
+              }
+            }
+          ],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "alias": null,
+                "name": {
+                  "kind": "Name",
+                  "value": "user",
+                  "loc": {
+                    "start": 50,
+                    "end": 54
+                  }
+                },
+                "arguments": [
+                  {
+                    "kind": "Argument",
+                    "name": {
+                      "kind": "Name",
+                      "value": "githubUsername",
+                      "loc": {
+                        "start": 55,
+                        "end": 69
+                      }
+                    },
+                    "value": {
+                      "kind": "Variable",
+                      "name": {
+                        "kind": "Name",
+                        "value": "githubUsername",
+                        "loc": {
+                          "start": 72,
+                          "end": 86
+                        }
+                      },
+                      "loc": {
+                        "start": 71,
+                        "end": 86
+                      }
+                    },
+                    "loc": {
+                      "start": 55,
+                      "end": 86
+                    }
+                  }
+                ],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "__typename",
+                        "loc": {
+                          "start": 94,
+                          "end": 104
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 94,
+                        "end": 104
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "firstName",
+                        "loc": {
+                          "start": 109,
+                          "end": 118
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 109,
+                        "end": 118
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "github",
+                        "loc": {
+                          "start": 123,
+                          "end": 129
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": {
+                        "kind": "SelectionSet",
+                        "selections": [
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "__typename",
+                              "loc": {
+                                "start": 138,
+                                "end": 148
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 138,
+                              "end": 148
+                            }
+                          },
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "avatarSrc",
+                              "loc": {
+                                "start": 155,
+                                "end": 164
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 155,
+                              "end": 164
+                            }
+                          },
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "events",
+                              "loc": {
+                                "start": 171,
+                                "end": 177
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": {
+                              "kind": "SelectionSet",
+                              "selections": [
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "__typename",
+                                    "loc": {
+                                      "start": 188,
+                                      "end": 198
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 188,
+                                    "end": 198
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "eventType",
+                                    "loc": {
+                                      "start": 207,
+                                      "end": 216
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 207,
+                                    "end": 216
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "url",
+                                    "loc": {
+                                      "start": 225,
+                                      "end": 228
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 225,
+                                    "end": 228
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "urlName",
+                                    "loc": {
+                                      "start": 237,
+                                      "end": 244
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 237,
+                                    "end": 244
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "weather",
+                                    "loc": {
+                                      "start": 253,
+                                      "end": 260
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": {
+                                    "kind": "SelectionSet",
+                                    "selections": [
+                                      {
+                                        "kind": "Field",
+                                        "alias": null,
+                                        "name": {
+                                          "kind": "Name",
+                                          "value": "__typename",
+                                          "loc": {
+                                            "start": 273,
+                                            "end": 283
+                                          }
+                                        },
+                                        "arguments": [],
+                                        "directives": [],
+                                        "selectionSet": null,
+                                        "loc": {
+                                          "start": 273,
+                                          "end": 283
+                                        }
+                                      },
+                                      {
+                                        "kind": "Field",
+                                        "alias": null,
+                                        "name": {
+                                          "kind": "Name",
+                                          "value": "condition",
+                                          "loc": {
+                                            "start": 294,
+                                            "end": 303
+                                          }
+                                        },
+                                        "arguments": [],
+                                        "directives": [],
+                                        "selectionSet": null,
+                                        "loc": {
+                                          "start": 294,
+                                          "end": 303
+                                        }
+                                      }
+                                    ],
+                                    "loc": {
+                                      "start": 261,
+                                      "end": 313
+                                    }
+                                  },
+                                  "loc": {
+                                    "start": 253,
+                                    "end": 313
+                                  }
+                                }
+                              ],
+                              "loc": {
+                                "start": 178,
+                                "end": 321
+                              }
+                            },
+                            "loc": {
+                              "start": 171,
+                              "end": 321
+                            }
+                          }
+                        ],
+                        "loc": {
+                          "start": 130,
+                          "end": 327
+                        }
+                      },
+                      "loc": {
+                        "start": 123,
+                        "end": 327
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": {
+                          "start": 332,
+                          "end": 334
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 332,
+                        "end": 334
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "lastName",
+                        "loc": {
+                          "start": 339,
+                          "end": 347
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 339,
+                        "end": 347
+                      }
+                    }
+                  ],
+                  "loc": {
+                    "start": 88,
+                    "end": 351
+                  }
+                },
+                "loc": {
+                  "start": 50,
+                  "end": 351
+                }
+              }
+            ],
+            "loc": {
+              "start": 46,
+              "end": 353
+            }
+          },
+          "loc": {
+            "start": 0,
+            "end": 353
+          }
+        }
+      ]
+    },
+    "id": 3
+  },
+  "subscription userCreated {\n  userCreated {\n    __typename\n    id\n    firstName\n    lastName\n    github {\n      __typename\n      id\n    }\n  }\n}": {
+    "transformedQuery": {
+      "kind": "Document",
+      "definitions": [
+        {
+          "kind": "OperationDefinition",
+          "operation": "subscription",
+          "name": {
+            "kind": "Name",
+            "value": "userCreated",
+            "loc": {
+              "start": 13,
+              "end": 24
+            }
+          },
+          "variableDefinitions": [],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "alias": null,
+                "name": {
+                  "kind": "Name",
+                  "value": "userCreated",
+                  "loc": {
+                    "start": 29,
+                    "end": 40
+                  }
+                },
+                "arguments": [],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "__typename",
+                        "loc": {
+                          "start": 47,
+                          "end": 57
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 47,
+                        "end": 57
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": {
+                          "start": 62,
+                          "end": 64
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 62,
+                        "end": 64
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "firstName",
+                        "loc": {
+                          "start": 69,
+                          "end": 78
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 69,
+                        "end": 78
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "lastName",
+                        "loc": {
+                          "start": 83,
+                          "end": 91
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 83,
+                        "end": 91
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "github",
+                        "loc": {
+                          "start": 96,
+                          "end": 102
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": {
+                        "kind": "SelectionSet",
+                        "selections": [
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "__typename",
+                              "loc": {
+                                "start": 111,
+                                "end": 121
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 111,
+                              "end": 121
+                            }
+                          },
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "id",
+                              "loc": {
+                                "start": 128,
+                                "end": 130
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 128,
+                              "end": 130
+                            }
+                          }
+                        ],
+                        "loc": {
+                          "start": 103,
+                          "end": 136
+                        }
+                      },
+                      "loc": {
+                        "start": 96,
+                        "end": 136
+                      }
+                    }
+                  ],
+                  "loc": {
+                    "start": 41,
+                    "end": 140
+                  }
+                },
+                "loc": {
+                  "start": 29,
+                  "end": 140
+                }
+              }
+            ],
+            "loc": {
+              "start": 25,
+              "end": 142
+            }
+          },
+          "loc": {
+            "start": 0,
+            "end": 142
+          }
+        }
+      ]
+    },
+    "id": 4
+  }
+}

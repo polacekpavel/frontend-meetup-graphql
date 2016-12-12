@@ -1,8 +1,8 @@
 # Frontend graphql meetup at STRV
 
 ## What is included
-* Webpack loader
 * React Apollo
+* Webpack loader
 * Optimistic UI
 * Subscription
 * Pagination
@@ -36,7 +36,22 @@ ReactDOM.render(
 );
 ```
 ###Query data with graphql
-src/client/Users.js
+Query - src/client/API/getAllUsers.graphql
+```graphql
+query getUserDetail($githubUsername: String!) {
+ query getAllUsers {
+   users {
+     firstName
+     github {
+       id
+     }
+     lastName
+     id
+   }
+ }
+}
+```
+Component - src/client/Users.js
 
 via high order function 
 ```javascript
@@ -100,7 +115,7 @@ You can import your *.graphql queries with webpack loader
 ```
 
 ```javascript
-import createUserQuery from './API/createUser.graphql';
+import getAllUsersQuery from './API/getAllUsersQuery.graphql';
 ```
 And then use it directly in code without gql tag
 ```javascript
@@ -111,8 +126,29 @@ class Users extends Component {
 ```
 Your data will be available in the *this.props.data*
 
-### Query data with variables
-src/client/UserDetail.js
+### Query data with variables (from props)
+Query - src/client/API/getUserDetail.graphql
+```graphql
+query getUserDetail($githubUsername: String!) {
+  user(githubUsername: $githubUsername) {
+    firstName
+    github {
+      avatarSrc
+      events {
+        eventType
+        url
+        urlName
+        weather {
+          condition
+        }
+      }
+    }
+    id
+    lastName
+  }
+}
+```
+Component - src/client/UserDetail.js
 ```javascript
 import { graphql } from "react-apollo";
 import getUserDetailQuery from "./API/getUserDetail.graphql";
@@ -131,8 +167,17 @@ class UserDetail extends Component {
 }
 ```
 
-###Mutation
-src/client/CreateUser.js
+###Mutation (from state)
+Query - src/client/API/createUser.graphql
+
+```graphql
+mutation createUser($firstName: String, $lastName: String, $githubUsername: String!) {
+  createUser(firstName: $firstName, lastName: $lastName, githubUsername: $githubUsername) {
+    id
+  }
+}
+```
+Component - src/client/CreateUser.js
 
 ```javascript
 import { graphql } from "react-apollo";
@@ -141,18 +186,25 @@ import createUserQuery from "./API/createUser.graphql";
 @graphql(createUserQuery, { name: 'createUser' })
 class CreateUser extends Component {
     ...
-    <button className="btn btn-success"
-            onClick={() => {
-            this.props.createUser({
-             variables: {
-              firstName: this.state.firstName,
-              lastName: this.state.lastName,
-              githubUsername: this.state.githubUsername
-            }
-          }).then(() => this.props.onCreate());
-        }}>
-      Save
-    </button>
+    <button className='btn btn-success'
+                    onClick={() => {
+                      this.props.data.fetchMore({
+                        variables: {
+                          offset: this.props.data.users.length
+                        },
+                        updateQuery: (previousResult, fetchMoreData) => {
+                          const newUser = fetchMoreData.fetchMoreResult.data.users;
+                          return update(previousResult, {
+                            users: {
+                              $unshift: newUser
+                            }
+                          });
+                        }
+                      });
+                    }
+                    }>
+              Load more
+            </button>
 }
 ```
 
@@ -161,7 +213,7 @@ You can change name with name parameter.
  
 ### Refreshing data
 #### Pooling
-src/client/User.js 
+Component - src/client/User.js 
 Check for new data every second.
 ```javascript
 @graphql(getAllUsersQuery, { options: { pollInterval: 1000 } })
@@ -171,7 +223,7 @@ class Users extends Component {
 ```
 
 #### Subscription with web sockets
-src/index.js
+Component - src/index.js
 
 ```javascript
 import ApolloClient, { createNetworkInterface } from "apollo-client";
@@ -199,8 +251,20 @@ const client = new ApolloClient({
   networkInterface: addGraphqlSubscription(networkInterface, wsClient)
 });
 ```
-
-src/client/users.js
+Query - src/client/API/userCreated.graphql
+```graphql
+subscription userCreated {
+  userCreated {
+    id
+    firstName
+    lastName
+    github {
+      id
+    }
+  }
+}
+```
+Component - src/client/users.js
 ```javascript
 import userCreatedQuery from "./API/userCreated.graphql";
 class Users extends Component {    
@@ -225,7 +289,7 @@ class Users extends Component {
 ```
 
 ### Optimistic ui
-src/client/CreateUser.js
+Component - src/client/CreateUser.js
 ```javascript
 this.props.createUser({
                     variables: {
@@ -262,7 +326,7 @@ this.props.createUser({
 
 ### Pagination
 
-src/client/Users.js
+Component - src/client/Users.js
 ```javascript
 @graphql(getAllUsersQuery, {
   options: {
@@ -296,7 +360,7 @@ class Users extends Component {
 }
 ```
 ### Prefetching queries
-src/client/Users.js
+Component - src/client/Users.js
 ```javascript
 import { graphql, withApollo } from "react-apollo";
 
@@ -313,6 +377,18 @@ class Users extends Component {
                   });
                 }}
 }
+
+```
+### Batching graphql requests
+Component - src/index.js
+```javascript
+import ApolloClient, { createBatchingNetworkInterface } from "apollo-client";
+...
+const networkInterface = createBatchingNetworkInterface({
+  uri: 'http://localhost:8080/graphql',
+  batchInterval: 500
+});
+...
 ```
 
 ### Persisted queries
@@ -340,16 +416,4 @@ app.use('/graphql', graphqlExpress({
     Weather: new WeatherModel({ connector: new WeatherConnector() })
   }
 }));
-```
-
-### Batching graphql requests
-src/index.js
-```javascript
-import ApolloClient, { createBatchingNetworkInterface } from "apollo-client";
-...
-const networkInterface = createBatchingNetworkInterface({
-  uri: 'http://localhost:8080/graphql',
-  batchInterval: 500
-});
-...
 ```
