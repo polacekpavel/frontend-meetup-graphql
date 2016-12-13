@@ -34,21 +34,6 @@ ReactDOM.render(
 );
 ```
 ###Query data with graphql
-Query - src/client/API/getAllUsers.graphql
-```graphql
-query getUserDetail($githubUsername: String!) {
- query getAllUsers {
-   users {
-     firstName
-     github {
-       id
-     }
-     lastName
-     id
-   }
- }
-}
-```
 Component - src/client/Users.js
 
 via high order function 
@@ -109,6 +94,20 @@ You can import your *.graphql queries with webpack loader
         test: /\.(graphql|gql)$/,
         exclude: /node_modules/,
         loader: 'graphql-tag/loader'
+}
+```
+
+Query - src/client/API/getAllUsers.graphql
+```graphql
+query getAllUsers {
+    users {
+      firstName
+      github {
+        id
+      }
+      lastName
+      id
+    }
 }
 ```
 
@@ -184,24 +183,17 @@ import createUserQuery from "./API/createUser.graphql";
 @graphql(createUserQuery, { name: 'createUser' })
 class CreateUser extends Component {
     ...
-    <button className='btn btn-success'
+    <button className="btn btn-success"
                     onClick={() => {
-                      this.props.data.fetchMore({
+                      this.props.createUser({
                         variables: {
-                          offset: this.props.data.users.length
-                        },
-                        updateQuery: (previousResult, fetchMoreData) => {
-                          const newUser = fetchMoreData.fetchMoreResult.data.users;
-                          return update(previousResult, {
-                            users: {
-                              $unshift: newUser
-                            }
-                          });
-                        }
-                      });
-                    }
-                    }>
-              Load more
+                          firstName: this.state.firstName,
+                          lastName: this.state.lastName,
+                          githubUsername: this.state.githubUsername
+                        }                        
+                      }).then(() => this.props.onCreate());
+                    }}>
+              Save
             </button>
 }
 ```
@@ -351,23 +343,24 @@ Component - src/client/Users.js
 class Users extends Component {
     ...
        <button className='btn btn-success'
-               onClick={() => {
-                 this.props.data.fetchMore({
-                   variables: {
-                     offset: this.props.data.users.length
-                   },
-                     const newUsers = fetchMoreData.fetchMoreResult.data.users;
-                     return update(previousState, {
-                       users: {
-                         $unshift: newUsers
+                       onClick={() => {
+                         this.props.data.fetchMore({
+                           variables: {
+                             offset: this.props.data.users.length
+                           },
+                           updateQuery: (previousResult, fetchMoreData) => {
+                             const newUser = fetchMoreData.fetchMoreResult.data.users;
+                             return update(previousResult, {
+                               users: {
+                                 $unshift: newUser
+                               }
+                             });
+                           }
+                         });
                        }
-                     });
-                   }
-                 });
-               }
-               }>
-         Load more
-       </button>
+                       }>
+                 Load more
+               </button>
     ...
 }
 ```
@@ -375,7 +368,15 @@ class Users extends Component {
 Component - src/client/Users.js
 ```javascript
 import { graphql, withApollo } from "react-apollo";
-
+import getUserDetailQuery from "./API/getUserDetail.graphql";
+@graphql(getAllUsersQuery, {
+  options: {
+    variables: {
+      limit: 1,
+      offset: 0
+    }
+  }
+})
 @withApollo
 class Users extends Component {
     ...
