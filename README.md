@@ -323,7 +323,21 @@ this.props.createUser({
 ```
 
 ### Pagination
-
+Query - src/client/API/getAllUsers.graphql
+```graphql
+query getAllUsers ($offset: Int, $limit: Int) {
+  users(limit: $limit, offset: $offset) {
+    __typename
+    firstName
+    github {
+      __typename
+      id
+    }
+    lastName
+    id
+  }
+}
+```
 Component - src/client/Users.js
 ```javascript
 @graphql(getAllUsersQuery, {
